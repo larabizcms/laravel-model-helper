@@ -1,0 +1,26 @@
+{
+    "name": "larabizcms/laravel-model-helper",
+    "description": "This is helper models for Laravel",
+    "keywords": [
+        "PHP",
+        "Laravel",
+        "CMS",
+        "Model"
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LarabizCMS\\LaravelModelHelper\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LarabizCMS\\LaravelModelHelper\\Providers\\ModelHelperServiceProvider"
+            ]
+        }
+    }
+}
