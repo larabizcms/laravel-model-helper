@@ -43,10 +43,11 @@ class CacheGroup implements QueriesCacheGroup
     /**
      * Add a new key to a cache group.
      *
-     * @param string $group The name of the cache group.
-     * @param string $key The key to add to the cache group.
-     * @param mixed $ttl The time-to-live for the cache group. Defaults to null.
+     * @param  string  $group  The name of the cache group.
+     * @param  string  $key  The key to add to the cache group.
+     * @param  mixed  $ttl  The time-to-live for the cache group. Defaults to null.
      * @return void
+     * @throws InvalidArgumentException
      */
     public function add(string $group, string $key, $ttl = null): void
     {

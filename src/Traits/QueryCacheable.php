@@ -4,8 +4,8 @@ namespace LarabizCMS\LaravelModelHelper\Traits;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
-use OneContent\Helper\Observers\Queries\FlushQueryCacheObserver;
 use LarabizCMS\LaravelModelHelper\Queries\Builder;
+use LarabizCMS\LaravelModelHelper\Queries\FlushQueryCacheObserver;
 
 /**
  * @property bool $flushCacheOnUpdate

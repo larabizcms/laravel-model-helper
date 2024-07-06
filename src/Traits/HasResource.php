@@ -4,8 +4,8 @@ namespace LarabizCMS\LaravelModelHelper\Traits;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use OneContent\LaravelPlus\Resources\CollectionResource;
-use OneContent\LaravelPlus\Resources\ModelResource;
+use LarabizCMS\Core\Http\Resources\ModelCollectionResource;
+use LarabizCMS\Core\Http\Resources\ModelResource;
 
 trait HasResource
 {
@@ -14,7 +14,7 @@ trait HasResource
      *
      * @return class-string<JsonResource>
      */
-    public static function resource(): string
+    public static function getResource(): string
     {
         return ModelResource::class;
     }
@@ -24,9 +24,9 @@ trait HasResource
      *
      * @return class-string<ResourceCollection>
      */
-    public static function collectionResource(): string
+    public static function getCollectionResource(): string
     {
-        return CollectionResource::class;
+        return ModelCollectionResource::class;
     }
 
     /**
@@ -35,9 +35,9 @@ trait HasResource
      * @param mixed $resource
      * @return JsonResource
      */
-    public static function makeResource($resource): JsonResource
+    public static function makeResource(mixed $resource): JsonResource
     {
-        return static::resource()::make($resource);
+        return static::getResource()::make($resource);
     }
 
     /**
@@ -54,20 +54,20 @@ trait HasResource
      * @param  mixed  $resource
      * @return ResourceCollection
      */
-    public static function makeCollectionResource($resource): ResourceCollection
+    public static function makeCollectionResource(mixed $resource): ResourceCollection
     {
         // If the resource is not a CollectionResource and the resource class
         // is not a ModelResource, then return a new CollectionResource with
         // the given resource.
-        if (static::collectionResource() === CollectionResource::class
-            && static::resource() !== ModelResource::class
+        if (static::getCollectionResource() === ModelCollectionResource::class
+            && static::getResource() !== ModelResource::class
         ) {
-            return static::resource()::collection($resource);
+            return static::getResource()::collection($resource);
         }
 
         // If the resource is a CollectionResource or the resource class is a
         // ModelResource, then return a new resource collection using the
         // resource class.
-        return static::collectionResource()::make($resource);
+        return static::getCollectionResource()::make($resource);
     }
 }
