@@ -94,7 +94,6 @@ class Builder extends BaseBuilder implements QueryCacheModuleInterface
                     'operator' => $operator,
                     'second'   => $second[$index],
                     'boolean'  => $boolean,
-
                 ];
             }
 
