@@ -32,6 +32,13 @@ trait Sortable
         $sortBys = $params['sort_by'] ?? null;
         $sortOrders = $params['sort_order'] ?? 'DESC';
 
+        // If no sorting columns were specified, use the default sorting
+        if (empty($sortBys) && ($defaultSorts = $this->getSortableDefault())) {
+            foreach ($defaultSorts as $column => $sort) {
+                $query->orderBy("{$tlb}.{$column}", $sort);
+            }
+        }
+
         // If the sort_by parameter is not an array, make it an array
         if (!is_array($sortBys)) {
             $sortBys = [$sortBys];
@@ -59,13 +66,6 @@ trait Sortable
 
             // Add the sorting to the query
             $query->orderBy("{$tlb}.{$sortBy}", $sortOrder);
-        }
-
-        // If no sorting columns were specified, use the default sorting
-        if (empty($sortBys) && ($defaultSorts = $this->getSortableDefault())) {
-            foreach ($defaultSorts as $column => $sort) {
-                $query->orderBy("{$tlb}.{$column}", $sort);
-            }
         }
 
         // If the additionSort method exists, call it

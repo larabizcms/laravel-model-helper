@@ -36,7 +36,7 @@ trait HasAPI
      * @param  array  $params
      * @return Builder
      */
-    public function scopeApi(Builder $builder, array $params): Builder
+    public function scopeApi(Builder $builder, array $params = []): Builder
     {
         return $builder->with($this->apiWithDefaults())
             ->when(

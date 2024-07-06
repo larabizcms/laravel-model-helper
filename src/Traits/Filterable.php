@@ -31,15 +31,15 @@ trait Filterable
         $filters = array_filter(
             $this->getFilterable(),
             function ($column) use ($params) {
-                return Arr::has($params, $column['field']);
+                return Arr::has($params, $column['field']) && Arr::get($params, $column['field']) !== null;
             }
         );
 
         // Loop through the filters and add them to the query
         foreach ($filters as $filter) {
             // If the model has a scope{$filter['field']}Filterable method, call it
-            $field = Str::ucfirst(Str::camel($filter['field']));
-            if (method_exists($this, "scope{$field}Filterable")) {
+            if (method_exists($this, "scope{$filter['field']}Searchable")) {
+                $field = Str::ucfirst(Str::camel($filter['field']));
                 $query->{"scope{$field}Filterable"}($params);
                 continue;
             }
@@ -139,6 +139,8 @@ trait Filterable
                      */
                     if (is_int($key)) {
                         $column = $value;
+                        $operator = '=';
+                        $field = $column;
                     }
 
                     /**

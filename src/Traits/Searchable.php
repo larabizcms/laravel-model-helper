@@ -107,6 +107,7 @@ trait Searchable
                         // If the key is an integer, then the value is the column name
                         return [
                             'column' => "{$tlb}.{$value}",
+                            'operator' => 'LIKE',
                         ];
                     }
 

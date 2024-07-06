@@ -4,7 +4,7 @@ namespace LarabizCMS\LaravelModelHelper\Queries;
 
 use Illuminate\Database\Query\Builder as BaseBuilder;
 use Illuminate\Support\Arr;
-use OneContent\Helper\Interfaces\Queries\QueryCacheModuleInterface;
+use LarabizCMS\LaravelModelHelper\Interfaces\QueryCacheModuleInterface;
 use LarabizCMS\LaravelModelHelper\Traits\QueryCacheModule;
 
 class Builder extends BaseBuilder implements QueryCacheModuleInterface
