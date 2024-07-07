@@ -4,8 +4,8 @@ namespace LarabizCMS\LaravelModelHelper\Traits;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use LarabizCMS\Core\Http\Resources\ModelCollectionResource;
-use LarabizCMS\Core\Http\Resources\ModelResource;
+use LarabizCMS\LaravelModelHelper\Http\Resources\ModelCollectionResource;
+use LarabizCMS\LaravelModelHelper\Http\Resources\ModelResource;
 
 trait HasResource
 {

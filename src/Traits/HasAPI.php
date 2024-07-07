@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 
 /**
- * @method static Builder|static api(array $params)
- * @method static Builder|static inApi(array $params) // TODO: Add your custom scopes here
+ * @method static Builder|static api(array $params = [])
+ * @method static Builder|static inApi(array $params = []) // TODO: Add your custom scopes here
  */
 trait HasAPI
 {
@@ -20,7 +20,7 @@ trait HasAPI
      * @param  array  $params
      * @return Builder
      */
-    // public function scopeInApi(Builder $builder, array $params): Builder
+    // public function scopeInApi(Builder $builder, array $params = []): Builder
     // {
     // }
 
