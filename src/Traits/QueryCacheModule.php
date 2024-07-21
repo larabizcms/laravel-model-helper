@@ -6,7 +6,7 @@ use BadMethodCallException;
 use DateTime;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Database\Query\Builder;
-use OneContent\Helper\Facades\Queries\CacheGroup;
+use LarabizCMS\LaravelModelHelper\Facades\CacheGroup;
 
 trait QueryCacheModule
 {
@@ -47,7 +47,7 @@ trait QueryCacheModule
      *
      * @var string
      */
-    protected string $cachePrefix = 'jw_query';
+    protected string $cachePrefix = 'larabiz_query';
 
     /**
      * Specify if the key that should be used when caching the query
