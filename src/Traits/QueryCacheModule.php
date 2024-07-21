@@ -16,7 +16,7 @@ trait QueryCacheModule
      *
      * @var null|int|\DateTime
      */
-    protected $cacheFor = null;
+    protected int|null|DateTime $cacheFor = null;
 
     /**
      * The tags for the query cache. Can be useful
