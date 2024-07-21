@@ -37,10 +37,10 @@ trait Filterable
 
         // Loop through the filters and add them to the query
         foreach ($filters as $filter) {
-            // If the model has a scope{$filter['field']}Filterable method, call it
-            if (method_exists($this, "scope{$filter['field']}Searchable")) {
-                $field = Str::ucfirst(Str::camel($filter['field']));
-                $query->{"scope{$field}Filterable"}($params);
+            $field = Str::ucfirst(Str::camel($filter['field']));
+            // If the model has a scope{$field}Filterable method, call it
+            if (method_exists($this, "scope{$field}Filterable")) {
+                $query->{"{$field}Filterable"}($params);
                 continue;
             }
 
